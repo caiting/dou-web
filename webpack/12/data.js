@@ -1,0 +1,1 @@
+var data = 'I really really don\'t give up!'
