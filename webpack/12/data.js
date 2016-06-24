@@ -1,1 +1,2 @@
-var data = 'I really really don\'t give up!'
+var data = 'I really really';
+

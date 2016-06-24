@@ -1,23 +1,28 @@
+var webpack = require('webpack');  //webpack
+var path = require('path'); //路径
+
 module.exports = {
-    entry: './index.jsx',
+    entry: [
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:8080',
+        './index.js'
+    ],
     output: {
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/static/'
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
-        loaders:[
-            {
-                test: /\.js[x]?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react']
-                }
+        loaders: [{
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015', 'react']
             },
-        ]
-    },
-    externals: {
-        // require('data') is external and available
-        //  on the global var data
-        'data': 'data'
+            include: path.join(__dirname, '.')
+        }]
     }
 };

@@ -4,8 +4,7 @@ var ReacrDOM = require('react-dom');
 
 ReacrDOM.render(
     <h1>{data}</h1>,
-    document.body
-
-)
+    document.getElementById('main')
+);
 
 
