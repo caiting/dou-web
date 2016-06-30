@@ -1,1 +1,0 @@
-$('#a').text('sorry,I can\'t');
